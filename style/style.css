@@ -1,0 +1,306 @@
+/* - r-dc_ 2016
+ * after an idea from http://codepen.io/znak/pen/ntsdy
+ */
+
+*,:before,:after {
+	box-sizing: border-box;
+	position: relative;
+}
+
+html, body {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background:url("images/background-1.jpg") 50% no-repeat fixed;
+	background-size:cover;
+	font:14px/1.4 HelveticaNeue-Light,'Helvetica Neue Light','Helvetica Neue',Helvetica,'Lucida Grande',Arial,sans-serif;
+}
+
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+li {
+	padding: 4px 8px;
+}
+
+
+h1 {
+	font-size: .9em;
+	line-height: 1em;
+	font-weight: 300;
+	color: #222;
+	margin: 0;
+}
+
+p:not(:last-child) {
+	margin-bottom:.6em;
+}
+
+p.small {
+	font-size:.8em;
+	color:#222;
+	text-align:center;
+}
+
+a {
+	text-decoration:none;
+	color:inherit;
+	border-bottom:1px solid #888;
+}
+
+#it {
+	background:inherit;
+	-webkit-user-drag:element;
+	position: fixed;
+	top:40px;
+	left:40px;
+}
+
+section {
+	width:800px;
+	min-height: 400px;
+	position: relative;
+	background:inherit;
+	border:1px solid rgba(0,0,0,0.1);
+	border-radius:6px;
+	box-shadow:0 8px 16px rgba(0,0,0,0.25);
+	overflow:hidden;
+}
+
+section .top-bar {
+	padding:8px;
+	z-index: 999;
+
+	background: -webkit-linear-gradient(top,  rgba(232,229,232,.9) 0%,rgba(210,207,210,.9) 100%);
+	background: -moz-linear-gradient(top,  rgba(232,229,232,.9) 0%, rgba(210,207,210,.9) 100%);
+	background: linear-gradient(to bottom,  rgba(232,229,232,.9) 0%,rgba(210,207,210,.9) 100%);
+
+	border-top: 1px solid #EEECEE;
+	border-bottom: 1px solid rgba(151, 149, 151, .6);
+	text-align:center;
+}
+section .top-bar::before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:inherit;
+	-webkit-filter:blur(10px) saturate(2);
+	-moz-filter:blur(10px) saturate(2);
+	filter:blur(10px) saturate(2);
+}
+
+section .stop-lights {
+	position: absolute;
+	height: .9em;
+	top: 0.2em;
+}
+section .stop-lights li {
+	padding: 0;
+	display: inline-block;
+	height: inherit;
+}
+.stop-lights button:hover {
+	background-color: #000!important;
+}
+.stop-lights button {
+	padding: 0;
+	-webkit-appearance: none;
+	background: #FF6159;
+	border: .5px solid #DF6662;
+	width: 1.1em;
+	height: inherit;
+	border-radius: 50%;
+	z-index: 1000;
+}
+.stop-lights .orange-light button {
+	background-color: #FFBF2F;
+	border-color: #DE9F22;
+}
+.stop-lights .green-light button {
+	background-color: #29CF42;
+	border-color: #1BAC2C;
+}
+
+section .tool-bar {
+	height: 23px;
+	text-align: left;
+	margin: 2px 0;
+}
+section .tool-bar li {
+	margin: 4px 2px 4px 0;
+	padding: 0;
+	display: inline-block;
+	height: inherit;
+}
+.tool-bar button {
+	padding: 0;
+	-webkit-appearance: none;
+	background: #fff;
+	border: .5px solid #C4C1C4;
+	border-radius: 4px;
+	width: 3em;
+	height: inherit;
+	z-index: 1000;
+}
+
+
+section nav {
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	top: 0;
+	padding-top: 57px;
+	border-right: 1px solid #CDCFD5;
+	background:inherit;
+}
+section nav::before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:inherit;
+	-webkit-filter:blur(10px) saturate(2);
+	-moz-filter:blur(10px) saturate(2);
+	filter:blur(10px) saturate(2);
+}
+
+
+section nav li {
+	background: rgba(225, 227, 235, .8);
+}
+section nav li:last-child {
+	position: relative;
+}
+section nav li:last-child::after {
+	content: "";
+	background: rgba(225, 227, 235, .8);
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 99999999px;
+	top: 100%;
+}
+section nav a {
+	text-decoration: none;
+	border: none 0;
+}
+section nav .active {
+	background: rgba(225, 227, 235, .5);
+	border-top: .5px solid rgba(193, 193, 193, .55);
+	border-bottom: .5px solid rgba(193, 193, 193, .7);
+}
+
+
+section article {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 150px;
+	padding-top: 57px;
+	padding-bottom: 19px;
+	background: rgba(255, 255, 255, .99);
+	height: 100%;
+	overflow: auto;
+}
+
+section article table {
+	width: 100%;
+	border-collapse: collapse;
+}
+section article thead {
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	border-bottom: 1px solid #C0C0C0;
+}
+section article th {
+	text-align: left;
+	font-weight: normal;
+	background: #F0F0F0;
+	border-left: 1px solid #D8D8D8;
+	padding: 0 6px;
+	margin: 0;
+	font-size: .9em;
+}
+section article tr:first-child {
+	margin-top: 1px;
+}
+section article tr:nth-child(odd) {
+	background: #F5F5F5;
+}
+section article td {
+	padding: 1px 6px;
+}
+
+.status-bar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid rgba(151, 149, 151, .4);
+	height: 22px;
+	background: -moz-linear-gradient(top, rgba(232, 229, 232, .98) 0%, rgba(210, 207, 210, .98) 100%);
+	background: -webkit-linear-gradient(top, rgba(232, 229, 232, .98) 0%, rgba(210, 207, 210, .98) 100%);
+	background: linear-gradient(to bottom, rgba(232, 229, 232, .98) 0%, rgba(210, 207, 210, .98) 100%);
+	text-align: center;
+}
+
+.attr {
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+	font-family: 'Helvetica Neue',Helvetica,'Lucida Grande',Arial,sans-serif;
+	font-size: .6em;
+	line-height: .6em;
+	font-weight:400;
+	color: #fff;
+}
+
+section article tr td:first-child {
+	padding-left: 35px;
+	background-size: auto 94%;
+	background-repeat: no-repeat;
+	background-position: 8px 0;
+}
+section article tr.folder td:first-child {
+	background-image: url("images/folder@2X.png");
+}
+section article tr.file td:first-child {
+	background-image: url("images/file@2X.png");
+}
+section article td {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.protected, .forbidden {
+	color: grey;
+	position: absolute;
+	display: inline-block;
+	right: 0;
+	background: #fff;
+	border-radius: 5px;
+	padding: 0 .5ch;
+	font-style: italic;
+	border: 1px solid rgb(228, 228, 228);
+	font-size: 12px;
+	top: 1.5px;
+	-webkit-pointer-events: none;
+	-moz-pointer-events: none;
+	pointer-events: none;
+}
