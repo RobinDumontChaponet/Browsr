@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-	background:url("images/background-1.jpg") 50% no-repeat fixed;
+	background:url("images/background.jpg") 50% no-repeat fixed;
 	background-size:cover;
 	font:14px/1.4 HelveticaNeue-Light,'Helvetica Neue Light','Helvetica Neue',Helvetica,'Lucida Grande',Arial,sans-serif;
 }
